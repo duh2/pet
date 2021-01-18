@@ -48,6 +48,9 @@
 body {
     display: flex;
     flex-direction: column;
+    width:100vw;
+    height: 100vh;
+    margin: 0px;
 
 
 }
@@ -80,7 +83,7 @@ main {
     flex:1;
     display:flex;
     box-sizing: border-box;
-    width: 100vw;
+    width:100%;
 }
 .article1 {
     display: flex;
