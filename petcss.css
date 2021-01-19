@@ -1,5 +1,5 @@
 
-                      .box0 {
+                      .box-female {
                           display: flex;
                           background-color: cornsilk;
                           flex-direction: column;
@@ -7,7 +7,7 @@
                           margin: 5px;
                           box-sizing: border-box;
                       }
-                      .box1 {
+                      .box-male {
                           display: flex;
                           background-color: cornsilk;
                           flex-direction: column;
@@ -17,61 +17,61 @@
                       }
 
 @media screen and (min-width: 375px){
-    .box0
+    .box-female
     {
         width:453px;
     }
-    .box1
+    .box-male
     {
         width:453px;
     }
 }
 @media screen and (min-width: 480px){
-    .box0
+    .box-female
     {
         width:381px;
     }
-    .box1
+    .box-male
     {
         width:381px;
     }
 }
 @media screen and (min-width: 768px){
-    .box0
+    .box-female
     {
         width:321px;
     }
-    .box1
+    .box-male
     {
         width:321px;
     }
 }
 @media screen and (min-width: 1024px){
-    .box0
+    .box-female
     {
         width:270px;
     }
-    .box1
+    .box-male
     {
         width:270px;
     }
 }
 @media screen and (min-width: 1365px){
-    .box0
+    .box-female
     {
         width:228px;
     }
-    .box1
+    .box-male
     {
         width:228px;
     }
 }
 @media screen and (min-width: 1680px){
-    .box0
+    .box-female
     {
         width:192px;
     }
-    .box1
+    .box-male
     {
         width:192px;
     }
@@ -126,6 +126,10 @@ main {
 .pic{
     height: 50%;
     width: auto;
+}
+.hidden
+{
+    display: none;
 }
 
 
