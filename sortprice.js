@@ -26,7 +26,7 @@ function setCookie() {
     let checkmale_cookie=getCookie('checkmale')
     let checkfemale_cookie=getCookie('checkfemale')
     document.querySelector('#checkfemale').checked=checkfemale_cookie
-    document.querySelector('#checkfemale').checked=checkmale_cookie
+    document.querySelector('#checkMale').checked=checkmale_cookie
     if ( price_cookie!==null){
         document.querySelector('#pricebox').value=price_cookie;
     }
