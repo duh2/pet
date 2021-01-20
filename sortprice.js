@@ -17,27 +17,16 @@ function my_filter() {
     }
 }
 function getCookie(name) {
-    let cookie = " " + document.cookie;
-    let search = " " + name + "=";
-    let setStr = null;
-    let offset = 0;
-    let end = 0;
-    if (cookie.length > 0) {
-        offset = cookie.indexOf(search);
-        if (offset !== -1) {
-            offset += search.length;
-            end = cookie.indexOf(";", offset);
-            if (end === -1) {
-                end = cookie.length;
-            }
-            setStr = decodeURI(cookie.substring(offset, end));
-        }
-    }
-    return(setStr);
-}
+    var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+    if (r) return r[2];
+    else return "";}
+
 function setCookie() {
     let price_cookie=getCookie('price_cookie')
-    
+    let checkmale_cookie=getCookie('checkmale')
+    let checkfemale_cookie=getCookie('checkfemale')
+    document.querySelector('#checkfemale').checked=checkfemale_cookie
+    document.querySelector('#checkfemale').checked=checkmale_cookie
     if ( price_cookie!==null){
         document.querySelector('#pricebox').value=price_cookie;
     }

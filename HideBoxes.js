@@ -3,6 +3,8 @@ function hideboxes() {
     let checkmale = document.querySelector("#checkMale");
     let femalebox = document.getElementsByClassName('female');
     let checkfemale = document.querySelector("#checkfemale")
+    document.cookie='checkmale=' + checkmale.checked;
+    document.cookie='checkfemale=' + checkfemale.checked;
     if (checkmale.checked){
         for(let i=0; i<malebox.length;i++){
             malebox[i].classList.remove(`hidden`) ;
