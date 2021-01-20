@@ -17,7 +17,7 @@ function my_filter() {
     }
 }
 function getCookie(name) {
-    var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+    var r = document.cookie.match("(|;) ?" + name + "=([^;]*)(;|$)");
     if (r) return r[2];
     else return "";}
 
