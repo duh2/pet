@@ -37,7 +37,7 @@ function getCookie(name) {
 }
 function setCookie() {
     let price_cookie=getCookie('price_cookie')
-    alert(price_cookie)
+    
     if ( price_cookie!==null){
         document.querySelector('#pricebox').value=price_cookie;
     }
