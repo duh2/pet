@@ -1,7 +1,7 @@
 function hideboxes() {
-    let malebox = document.getElementsByClassName('box-male');
+    let malebox = document.getElementsByClassName('male');
     let checkmale = document.querySelector("#checkMale");
-    let femalebox = document.getElementsByClassName('box-female');
+    let femalebox = document.getElementsByClassName('female');
     let checkfemale = document.querySelector("#checkfemale")
     if (checkmale.checked){
         for(let i=0; i<malebox.length;i++){

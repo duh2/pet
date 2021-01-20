@@ -1,13 +1,5 @@
 
-                      .box-female {
-                          display: flex;
-                          background-color: cornsilk;
-                          flex-direction: column;
-                          height:250px;
-                          margin: 5px;
-                          box-sizing: border-box;
-                      }
-                      .box-male {
+                      .box {
                           display: flex;
                           background-color: cornsilk;
                           flex-direction: column;
@@ -16,65 +8,48 @@
                           box-sizing: border-box;
                       }
 
+
 @media screen and (min-width: 375px){
-    .box-female
+    .box
     {
         width:453px;
     }
-    .box-male
-    {
-        width:453px;
-    }
+
 }
 @media screen and (min-width: 480px){
-    .box-female
+    .box
     {
         width:381px;
     }
-    .box-male
-    {
-        width:381px;
-    }
+
 }
 @media screen and (min-width: 768px){
-    .box-female
+    .box
     {
         width:321px;
     }
-    .box-male
-    {
-        width:321px;
-    }
+
 }
 @media screen and (min-width: 1024px){
-    .box-female
+    .box
     {
         width:270px;
     }
-    .box-male
-    {
-        width:270px;
-    }
+
 }
 @media screen and (min-width: 1365px){
-    .box-female
+    .box
     {
         width:228px;
     }
-    .box-male
-    {
-        width:228px;
-    }
+
 }
 @media screen and (min-width: 1680px){
-    .box-female
+    .box
     {
         width:192px;
     }
-    .box-male
-    {
-        width:192px;
-    }
+
 }
 
 
