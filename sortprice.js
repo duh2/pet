@@ -4,7 +4,7 @@ function applyAllFilters() {
         price=getCookie('price_cookie');
 
     }
-    
+
     let price_box_value
     let price_box = document.getElementsByClassName('cost');
     let all_boxes = document.getElementsByClassName('box');
