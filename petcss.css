@@ -7,49 +7,35 @@
                           margin: 5px;
                           box-sizing: border-box;
                       }
-
-
 @media screen and (min-width: 375px){
-    .box
-    {
+    .box {
         width:453px;
     }
-
 }
 @media screen and (min-width: 480px){
-    .box
-    {
+    .box {
         width:381px;
     }
-
 }
 @media screen and (min-width: 768px){
-    .box
-    {
+    .box {
         width:321px;
     }
-
 }
 @media screen and (min-width: 1024px){
-    .box
-    {
+    .box {
         width:270px;
     }
-
 }
 @media screen and (min-width: 1365px){
-    .box
-    {
+    .box {
         width:228px;
     }
-
 }
 @media screen and (min-width: 1680px){
-    .box
-    {
+    .box {
         width:192px;
     }
-
 }
 
 
@@ -59,32 +45,25 @@ body {
     width:100vw;
     height: 100vh;
     margin: 0px;
-
-
 }
 header{
     flex-direction: row;
-
     height: 50px;
     color: aliceblue;
-
     background-color: black;
 }
 .header {
     box-sizing: border-box;
     flex-direction: row;
     margin-bottom: 10px;
-
 }
 .nav{
     order:-1;
-
     width: 17%;
     background-color: aquamarine;
     flex-direction: column;
 }
 .menu{
-
     margin-bottom: 10px;
 }
 main {
@@ -102,8 +81,7 @@ main {
     height: 50%;
     width: auto;
 }
-.hidden
-{
+.hidden {
     display: none;
 }
 

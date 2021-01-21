@@ -1,4 +1,4 @@
-function hideboxes() {
+function hideBoxes() {
     let malebox = document.getElementsByClassName('male');
     let checkmale = document.querySelector("#checkMale");
     let femalebox = document.getElementsByClassName('female');
