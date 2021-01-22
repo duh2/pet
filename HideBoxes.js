@@ -1,10 +1,13 @@
+let checkMaleCookie;
+let checkFemaleCookie;
+let priceCookie;
 function hideBoxes() {
     let malebox = document.getElementsByClassName('male');
     let checkmale = document.querySelector("#checkMale");
     let femalebox = document.getElementsByClassName('female');
-    let checkfemale = document.querySelector("#checkfemale")
+    let checkFemale = document.querySelector("#checkFemale")
     document.cookie='checkmale=' + checkmale.checked;
-    document.cookie='checkfemale=' + checkfemale.checked;
+    document.cookie='checkFemale=' + checkFemale.checked;
     if (checkmale.checked){
         for(let i=0; i<malebox.length;i++){
             malebox[i].classList.remove(`hidden`) ;
@@ -14,7 +17,7 @@ function hideBoxes() {
             malebox[i].classList.add(`hidden`) ;
         }
     }
-    if (checkfemale.checked){
+    if (checkFemale.checked){
         for(let i=0; i<femalebox.length;i++){
             femalebox[i].classList.remove(`hidden`) ;
         }
@@ -53,21 +56,54 @@ function applyAllFilters() {
 function getCookie(name) {
     var r = document.cookie.match("(|;) ?" + name + "=([^;]*)(;|$)");
     if (r) return r[2];
-    else return "";}
-
-function setCookie() {
-    let priceCookie=getCookie('price_cookie');
-    let checkMaleCookie=getCookie('checkmale');
-    let checkFemaleCookie=getCookie('checkfemale');
-    if (checkFemaleCookie==null){
-        document.querySelector('#checkfemale').checked=true;
-    } else {
-        document.querySelector('#checkfemale').checked=checkFemaleCookie;
-    }    document.querySelector('#checkfemale').checked=checkFemaleCookie;
-    document.querySelector('#checkMale').checked=checkMaleCookie;
-    if ( priceCookie!==null) {
-        document.querySelector('#pricebox').value=priceCookie;
+    else return "";
+}
+function getCookieOnStart(){
+    let checkmale = document.querySelector("#checkMale");
+    let checkFemale = document.querySelector("#checkFemale")
+    document.cookie='checkmale=' + checkmale.checked;
+    document.cookie='checkFemale=' + checkFemale.checked;
+    if (checkMaleCookie===undefined){
+         checkMaleCookie=getCookie('checkmale');
+         checkMaleCookie=getCookie('checkmale');
     }
+    if (checkFemaleCookie===undefined){
+         checkFemaleCookie=getCookie('checkFemale');
+         checkFemaleCookie=getCookie('checkFemale');
+    }
+
+     priceCookie=getCookie('price_cookie');
+}
+
+function applyStoredFilters() {
+    let boolFemaleCookie
+    let boolMaleCookie
+    if (checkMaleCookie==="false"){
+        boolMaleCookie=NaN;
+    } else boolMaleCookie=true;
+    if (checkFemaleCookie==="false"){
+        boolFemaleCookie=NaN;
+    } else boolFemaleCookie=true;
+
+
+
+
+    if (checkFemaleCookie===undefined){
+        document.getElementById('checkFemale').checked = true;
+    }
+    else{
+        document.getElementById('checkFemale').checked = boolFemaleCookie;
+    }
+    if (checkMaleCookie===undefined){
+        document.getElementById('checkMale').checked = true;
+    } 
+    else{
+        document.getElementById('checkMale').checked = boolMaleCookie;
+
+    }
+    if ( !isNaN(priceCookie)===true) {
+        document.querySelector('#pricebox').value=priceCookie;
+    } else document.querySelector('#pricebox').value="0";
 
 }
 

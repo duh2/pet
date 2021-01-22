@@ -8,7 +8,7 @@
 
 
 </head>
-<body onload="setCookie();applyAllFilters();hideBoxes();">
+<body onload="getCookieOnStart();applyStoredFilters();applyAllFilters();hideBoxes();">
 
 
 <div class="header">
@@ -154,7 +154,7 @@
             <label>
 
 
-                <input type="checkbox" onclick="hideBoxes()" id="checkfemale"  value="checked" >
+                <input type="checkbox" onclick="hideBoxes()" id="checkFemale"  >
                 <span>Female</span>
             </label>
         </div>
