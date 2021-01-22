@@ -59,10 +59,7 @@ function getCookie(name) {
     else return "";
 }
 function getCookieOnStart(){
-    let checkmale = document.querySelector("#checkMale");
-    let checkFemale = document.querySelector("#checkFemale")
-    document.cookie='checkmale=' + checkmale.checked;
-    document.cookie='checkFemale=' + checkFemale.checked;
+
     if (checkMaleCookie===undefined){
          checkMaleCookie=getCookie('checkmale');
          checkMaleCookie=getCookie('checkmale');
