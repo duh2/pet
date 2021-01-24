@@ -61,15 +61,15 @@ function getCookie(name) {
 function getCookieOnStart(){
 
     if (checkMaleCookie===undefined){
-         checkMaleCookie=getCookie('checkmale');
-         checkMaleCookie=getCookie('checkmale');
+        checkMaleCookie=getCookie('checkmale');
+        checkMaleCookie=getCookie('checkmale');
     }
     if (checkFemaleCookie===undefined){
-         checkFemaleCookie=getCookie('checkFemale');
-         checkFemaleCookie=getCookie('checkFemale');
+        checkFemaleCookie=getCookie('checkFemale');
+        checkFemaleCookie=getCookie('checkFemale');
     }
 
-     priceCookie=getCookie('price_cookie');
+    priceCookie=getCookie('price_cookie');
 }
 
 function applyStoredFilters() {
@@ -93,7 +93,7 @@ function applyStoredFilters() {
     }
     if (checkMaleCookie===undefined){
         document.getElementById('checkMale').checked = true;
-    } 
+    }
     else{
         document.getElementById('checkMale').checked = boolMaleCookie;
 
@@ -103,6 +103,3 @@ function applyStoredFilters() {
     } else document.querySelector('#pricebox').value="0";
 
 }
-
-
-

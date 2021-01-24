@@ -8,7 +8,7 @@
 
 
 </head>
-<body onload="getCookieOnStart();applyStoredFilters();applyAllFilters();hideBoxes();">
+<body onload="getCookieOnStart();insertArrayData();applyStoredFilters();applyAllFilters();hideBoxes();">
 
 
 <div class="header">
@@ -21,133 +21,26 @@
 
 
 <main>
-    <div class="article1">
+    <mainPart class="article1" id="BoxOfBoxes">
+        <div class="box hidden" id="boxSample" >
 
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">aids</div>
-            <div class="cost" data-value-price="12378">12378</div>
+
         </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">abibas ddos</div>
-            <div class="cost" data-value-price="4567">4567</div>
-        </div>
-        <div class="box male"   >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">court</div>
-            <div class="cost"data-value-price="7565">7565</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">court 2.0</div>
-            <div class="cost" data-value-price="5999">5999</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">hoops 2.0</div>
-            <div class="cost" data-value-price="5698">5698</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">8k 2020</div>
-            <div class="cost" data-value-price="4235">4235</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">fusion</div>
-            <div class="cost" data-value-price="6875">6875</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic" alt="">
-            <div class="inside-box-female">female</div>
-            <div class="name">gazelle</div>
-            <div class="cost" data-value-price="7865">7865</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">v racer</div>
-            <div class="cost" data-value-price="8745">8745</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">lite racer</div>
-            <div class="cost" data-value-price="9854">9854</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">fyw xta</div>
-            <div class="cost" data-value-price="4562">4562</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic" alt="">
-            <div class="inside-box-male">male</div>
-            <div class="name">zx 750</div>
-            <div class="cost" data-value-price="7568">7568</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">forest groove</div>
-            <div class="cost" data-value-price="9876">9876</div>
-        </div>
-        <div class="box male" >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">streetball</div>
-            <div class="cost" data-value-price="4657">4657</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">torsion</div>
-            <div class="cost" data-value-price="6000">6000</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">torsion trdc</div>
-            <div class="cost" data-value-price="7000">7000</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">zx 2k boost</div>
-            <div class="cost" data-value-price="2560">2560</div>
-        </div>
-        <div class="box male"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-male">male</div>
-            <div class="name">x9000l3</div>
-            <div class="cost" data-value-price="3000">3000</div>
-        </div>
-        <div class="box female"  >
-            <img src="5c5199ed6194c843895_001_phsrh000_2000.jpeg" class="pic">
-            <div class="inside-box-female">female</div>
-            <div class="name">easy vulc</div>
-            <div class="cost" data-value-price="2499">2499</div>
-        </div>
-    </div>
+
+
+
+    </mainPart>
+
     <div class ="nav">
 
         <div class="menu">Navigation menu</div>
 
         <div class="menu">
 
-<label>
-    <input type="checkbox" onclick="hideBoxes()" id="checkMale" value="male" >
-    <span>Male</span>
-</label>
+            <label>
+                <input type="checkbox" onclick="hideBoxes()" id="checkMale" value="male" >
+                <span>Male</span>
+            </label>
         </div>
         <div class="menu">
 
@@ -170,11 +63,17 @@
 
 </main>
 
+//
 
 
 
+<script src="sortprice.js"></script>
+<script src="HideBoxes.js"></script>
+</body>
+</html>
 
 
+<script src="sortprice.js"></script>
 <script src="HideBoxes.js"></script>
 </body>
 </html>
