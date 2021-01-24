@@ -23,121 +23,121 @@ function applyAllFilters() {
     }
 }
 
-function insertArrayData() {
+function insertData() {
     let boxContent =[
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'aids',
-            arrayPrice:12378,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'aids',
+            Price:12378,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'abibas ddos',
-            arrayPrice:4567,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'abibas ddos',
+            Price:4567,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'court',
-            arrayPrice:7565,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'court',
+            Price:7565,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'court 2.0',
-            arrayPrice:5999,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'court 2.0',
+            Price:5999,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'hoops 2.0',
-            arrayPrice:5698,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'hoops 2.0',
+            Price:5698,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'8k 2020',
-            arrayPrice:4235,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'8k 2020',
+            Price:4235,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'fusion',
-            arrayPrice:6875,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'fusion',
+            Price:6875,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'gazelle',
-            arrayPrice:7865,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'gazelle',
+            Price:7865,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'v racer',
-            arrayPrice:8745,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'v racer',
+            Price:8745,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'lite racer',
-            arrayPrice:9854,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'lite racer',
+            Price:9854,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'fyw xta',
-            arrayPrice:4562,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'fyw xta',
+            Price:4562,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'zx 750',
-            arrayPrice:7568,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'zx 750',
+            Price:7568,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'forest groove',
-            arrayPrice:9876,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'forest groove',
+            Price:9876,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'streetball',
-            arrayPrice:4657,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'streetball',
+            Price:4657,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'female',
-            arrayModel:'torsion',
-            arrayPrice:6000,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'female',
+            Model:'torsion',
+            Price:6000,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'torsion trdc',
-            arrayPrice:7000,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'torsion trdc',
+            Price:7000,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'zx 2k boost',
-            arrayPrice:2560,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'zx 2k boost',
+            Price:2560,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'x9000l3',
-            arrayPrice:3000,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'x9000l3',
+            Price:3000,
         },
         {
-            arrayImg:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            arraySex:'male',
-            arrayModel:'easy vulc',
-            arrayPrice:2499,
+            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+            Sex:'male',
+            Model:'easy vulc',
+            Price:2499,
         }
     ]
     let box = document.querySelector('#boxSample');
@@ -150,32 +150,34 @@ function insertArrayData() {
         boxclone=box.cloneNode();
         boxclone.classList.remove('hidden')
         boxImg=document.createElement('img');
-        boxImg.src=boxContent[i].arrayImg;
+        boxImg.src=boxContent[i].Img;
         boxImg.classList.add('pic');
         boxclone.appendChild(boxImg);
         boxclone.setAttribute('data-index', i);
-        if (boxContent[i].arraySex==='male') {
+        if (boxContent[i].Sex==='male') {
             boxSex=document.createElement('div')
             boxSex.classList.add('inside-box-male');
-            boxSex.innerText = boxContent[i].arraySex;
+            boxSex.innerText = boxContent[i].Sex;
+            boxclone.classList.add('male')
             boxclone.appendChild(boxSex)
 
         }
         else{
             boxSex=document.createElement('div')
             boxSex.classList.add('inside-box-female');
-            boxSex.innerText = boxContent[i].arraySex;
+            boxSex.innerText = boxContent[i].Sex;
+            boxclone.classList.add('female')
             boxclone.appendChild(boxSex)
         }
         boxModel = document.createElement('div')
         boxModel.classList.add('name')
-        boxModel.innerText = boxContent[i].arrayModel;
+        boxModel.innerText = boxContent[i].Model;
         boxclone.appendChild(boxModel);
 
         boxPrice = document.createElement('div')
         boxPrice.classList.add('cost')
-        boxPrice.innerText = boxContent[i].arrayPrice;
-        boxPrice.setAttribute('data-value-price', boxContent[i].arrayPrice)
+        boxPrice.innerText = boxContent[i].Price;
+        boxPrice.setAttribute('data-value-price', boxContent[i].Price)
         boxclone.appendChild(boxPrice);
 
 
