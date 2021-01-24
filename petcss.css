@@ -1,10 +1,26 @@
-
+@font-face {
+    font-family: Roboto;
+src: url("roboto/Roboto.ttf");
+}
+@font-face {
+    font-family: "Roboto Light";
+    src: url("roboto/Robotolight.ttf");
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url("roboto/RobotoBlack.ttf")
+}
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("roboto/Robotobold.ttf");
+}
 .box {
     display: flex;
-    background-color: cornsilk;
+    background-color: whitesmoke;
     flex-direction: column;
     height:250px;
-    margin: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
     box-sizing: border-box;
 }
 @media screen and (min-width: 375px){
@@ -56,15 +72,17 @@ header{
     box-sizing: border-box;
     flex-direction: row;
     margin-bottom: 10px;
+    font-family: "Roboto Bold";
 }
 .nav{
     order:-1;
     width: 17%;
-    background-color: aquamarine;
+    background-color: ghostwhite;
     flex-direction: column;
 }
 .menu{
     margin-bottom: 10px;
+    background-color: whitesmoke;
 }
 main {
     flex:1;
@@ -75,7 +93,7 @@ main {
 .article1 {
     display: flex;
     flex-wrap:wrap;
-    background-color: brown;
+    background-color: white;
 }
 .pic{
     height: 50%;
@@ -83,6 +101,29 @@ main {
 }
 .hidden {
     display: none;
+}
+.name{
+    text-align: left;
+    font-size: 30px;
+    font-family: "Roboto Bold";
+
+}
+.inside-box-male{
+    text-align: left;
+    font-size: 15px;
+    font-family: "Roboto Light";
+    margin-bottom: 36px;
+}
+.inside-box-female{
+    text-align: left;
+    font-size: 15px;
+    font-family: "Roboto Light";
+    margin-bottom: 36px;
+}
+.cost{
+    text-align: left;
+    font-size: 30px;
+    font-family: "Roboto Bold";
 }
 
 

@@ -140,20 +140,26 @@ function insertData() {
             Price:2499,
         }
     ]
-    let box = document.querySelector('#boxSample');
+    let box = document.querySelector('sampleBox');
     let boxclone
     let boxImg
     let boxSex
     let boxModel
     let boxPrice
     for(let i=0; i<boxContent.length; i++){
-        boxclone=box.cloneNode();
+        boxclone=box.cloneNode(false);
         boxclone.classList.remove('hidden')
         boxImg=document.createElement('img');
         boxImg.src=boxContent[i].Img;
         boxImg.classList.add('pic');
         boxclone.appendChild(boxImg);
         boxclone.setAttribute('data-index', i);
+
+        boxModel = document.createElement('div')
+        boxModel.innerText = boxContent[i].Model;
+        boxModel.classList.add('name')
+        boxclone.appendChild(boxModel);
+
         if (boxContent[i].Sex==='male') {
             boxSex=document.createElement('div')
             boxSex.classList.add('inside-box-male');
@@ -169,10 +175,6 @@ function insertData() {
             boxclone.classList.add('female')
             boxclone.appendChild(boxSex)
         }
-        boxModel = document.createElement('div')
-        boxModel.classList.add('name')
-        boxModel.innerText = boxContent[i].Model;
-        boxclone.appendChild(boxModel);
 
         boxPrice = document.createElement('div')
         boxPrice.classList.add('cost')
