@@ -1,6 +1,6 @@
 let checkMaleCookie;
-let checkFemaleCookie;
-let priceCookie;
+let checkFemaleFilter;
+let priceFilter;
 function hideBoxes() {
     let malebox = document.getElementsByClassName('male');
     let checkmale = document.querySelector("#checkMale");
@@ -64,12 +64,12 @@ function getCookieOnStart(){
         checkMaleCookie=getCookie('checkmale');
         checkMaleCookie=getCookie('checkmale');
     }
-    if (checkFemaleCookie===undefined){
-        checkFemaleCookie=getCookie('checkFemale');
-        checkFemaleCookie=getCookie('checkFemale');
+    if (checkFemaleFilter===undefined){
+        checkFemaleFilter=getCookie('checkFemale');
+        checkFemaleFilter=getCookie('checkFemale');
     }
 
-    priceCookie=getCookie('price_cookie');
+    priceFilter=getCookie('price_cookie');
 }
 
 function applyStoredFilters() {
@@ -78,14 +78,14 @@ function applyStoredFilters() {
     if (checkMaleCookie==="false"){
         boolMaleCookie=NaN;
     } else boolMaleCookie=true;
-    if (checkFemaleCookie==="false"){
+    if (checkFemaleFilter==="false"){
         boolFemaleCookie=NaN;
     } else boolFemaleCookie=true;
 
 
 
 
-    if (checkFemaleCookie===undefined){
+    if (checkFemaleFilter===undefined){
         document.getElementById('checkFemale').checked = true;
     }
     else{
@@ -98,8 +98,8 @@ function applyStoredFilters() {
         document.getElementById('checkMale').checked = boolMaleCookie;
 
     }
-    if ( !isNaN(priceCookie)===true) {
-        document.querySelector('#pricebox').value=priceCookie;
+    if ( !isNaN(priceFilter)===true) {
+        document.querySelector('#pricebox').value=priceFilter;
     } else document.querySelector('#pricebox').value="0";
 
 }
