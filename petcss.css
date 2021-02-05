@@ -111,7 +111,8 @@ header{
 }
 .nav{
     order:-1;
-    width: 20%;
+    flex-shrink: 0;
+    width: 250px;
     background-color: ghostwhite;
     flex-direction: column;
     margin-right: 30px;
