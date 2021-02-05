@@ -6,7 +6,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-/.idea/*.iml
+/.idea/
 /roboto/*.woff
 /roboto/*.woff2
 /roboto/*.ttf
