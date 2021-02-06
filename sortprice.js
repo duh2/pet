@@ -1,15 +1,16 @@
 let boxContent =[
-    {
-        Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-        Sex:'male',
-        Model:'aids',
-        Price:12378,
-    },
+
     {
         Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
         Sex:'female',
         Model:'abibas ddos',
         Price:4567,
+    },
+    {
+        Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
+        Sex:'male',
+        Model:'aids',
+        Price:12378,
     },
     {
         Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
@@ -140,122 +141,6 @@ function applyAllFilters() {
 }
 
 function insertData() {
-    let boxContent =[
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'aids',
-            Price:12378,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'abibas ddos',
-            Price:4567,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'court',
-            Price:7565,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'court 2.0',
-            Price:5999,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'hoops 2.0',
-            Price:5698,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'8k 2020',
-            Price:4235,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'fusion',
-            Price:6875,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'gazelle',
-            Price:7865,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'v racer',
-            Price:8745,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'lite racer',
-            Price:9854,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'fyw xta',
-            Price:4562,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'zx 750',
-            Price:7568,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'forest groove',
-            Price:9876,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'streetball',
-            Price:4657,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'torsion',
-            Price:6000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'torsion trdc',
-            Price:7000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'zx 2k boost',
-            Price:2560,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'x9000l3',
-            Price:3000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'easy vulc',
-            Price:2499,
-        }
-    ]
     let box = document.querySelector('sampleBox');
     let boxclone
     let boxImg
@@ -342,22 +227,27 @@ function bubblesort() {
 
     let selectedSort = document.getElementById("sortselection").value
     if (selectedSort == "toBig") {
-        for (let i = 0; i<costs.length; i++) {
-            for (let i = 0; i < costs.length; i++) {
-                for (let i = 0; i <costs.length-1 ; i++) {
-                    if (costs[i].getAttribute('data-value-price') > costs[i+1].getAttribute('data-value-price')) {
+
+            for (let j = costs.length-1; j > 0; j--) {
+                for (let i = 0; i <j ; i++) {
+                    let firstElem = parseInt(costs[i].getAttribute('data-value-price'))
+                    let nextElem = parseInt(costs[i + 1].getAttribute('data-value-price'))
+                    if (firstElem > nextElem) {
                         boxes[i].parentNode.insertBefore(boxes[i], boxes[i].next)
                     }
                 }
             }
-        }
         testToBig()
-    }
+        }
+
+
     else if (selectedSort == "toSmall") {
         for (let i = 0; i<costs.length; i++) {
             for (let i = 0; i < costs.length; i++) {
                 for (let i = 0; i < costs.length - 1; i++) {
-                    if (costs[i].getAttribute('data-value-price') < costs[i + 1].getAttribute('data-value-price')) {
+                    let firstElem = parseInt(costs[i].getAttribute('data-value-price'))
+                    let nextElem = parseInt(costs[i + 1].getAttribute('data-value-price'))
+                    if (firstElem < nextElem) {
                         boxes[i].parentNode.insertBefore(boxes[i], boxes[i].next)
                     }
                 }
