@@ -7,6 +7,4 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /.idea/
-/roboto/*.woff
-/roboto/*.woff2
-/roboto/*.ttf
+
