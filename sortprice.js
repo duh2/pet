@@ -262,6 +262,3 @@ function bubblesort() {
         testToAlphabet();
     }
 }
-function getRequest() {
-
-}
