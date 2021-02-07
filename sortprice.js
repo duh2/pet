@@ -224,10 +224,9 @@ function bubblesort() {
     let boxes = document.getElementsByClassName("box");
     let costs = document.getElementsByClassName("cost")
     let models = document.getElementsByClassName('name')
-
     let selectedSort = document.getElementById("sortselection").value
+    
     if (selectedSort == "toBig") {
-
             for (let j = costs.length-1; j > 0; j--) {
                 for (let i = 0; i <j ; i++) {
                     let firstElem = parseInt(costs[i].getAttribute('data-value-price'))
@@ -239,11 +238,9 @@ function bubblesort() {
             }
         testToBig()
         }
-
-
     else if (selectedSort == "toSmall") {
-        for (let i = 0; i<costs.length; i++) {
-            for (let i = 0; i < costs.length; i++) {
+        for (let j = costs.length-1; j > 0; j--) {
+            for (let i = 0; i <j ; i++) {
                 for (let i = 0; i < costs.length - 1; i++) {
                     let firstElem = parseInt(costs[i].getAttribute('data-value-price'))
                     let nextElem = parseInt(costs[i + 1].getAttribute('data-value-price'))
@@ -255,15 +252,16 @@ function bubblesort() {
         }
         testToSmall()
     } else if (selectedSort == "byName") {
-        for (let i = 0; i < boxes.length - 1; i++) {
-            for (let i = 0; i < boxes.length - 1; i++) {
-                for (let i = 0; i < boxes.length - 1; i++) {
+            for (let j = costs.length-1; j > 0; j--) {
+                for (let i = 0; i <j ; i++) {
                     if (models[i].getAttribute('data-name') > models[i + 1].getAttribute('data-name')) {
                         boxes[i].parentNode.insertBefore(boxes[i], boxes[i].next)
                     }
                 }
             }
-        }
         testToAlphabet();
     }
+}
+function getRequest() {
+
 }
