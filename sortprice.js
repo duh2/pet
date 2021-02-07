@@ -1,3 +1,4 @@
+
 let boxContent =[
 
     {
@@ -115,6 +116,7 @@ let boxContent =[
         Price:2499,
     }
 ]
+
 function applyAllFilters() {
     let price = parseInt(document.querySelector('#pricebox').value);
     if (price==null){
@@ -130,10 +132,10 @@ function applyAllFilters() {
     for (let i=0; i<price_box.length; i++){
         price_box_value = price_box[i].getAttribute('data-value-price')
         if (price_box_value<price){
-            all_boxes[i].classList.add('hidden')
+            all_boxes[i+1].classList.add('hidden')
         }
         else {
-            all_boxes[i].classList.remove('hidden')
+            all_boxes[i+1].classList.remove('hidden')
         }
 
 
@@ -158,7 +160,6 @@ function insertData() {
 
         boxModel = document.createElement('div')
         boxModel.innerText = boxContent[i].Model;
-        boxModel.setAttribute('data-name', boxContent[i].Model)
         boxModel.classList.add('name')
         boxclone.appendChild(boxModel);
 
@@ -188,10 +189,7 @@ function insertData() {
         document.querySelector('mainPart').appendChild(boxclone)
 
     }
-    let boxes = document.getElementsByClassName("box");
-    boxes[0].parentNode.removeChild(boxes[0])
 
-}
 function testToBig() {
     let boxes = document.getElementsByClassName("box");
     let selectedSort = document.getElementById("sortselection").value
@@ -224,7 +222,6 @@ function bubblesort() {
     let boxes = document.getElementsByClassName("box");
     let costs = document.getElementsByClassName("cost")
     let models = document.getElementsByClassName('name')
-
     let selectedSort = document.getElementById("sortselection").value
     if (selectedSort == "toBig") {
 
@@ -266,4 +263,5 @@ function bubblesort() {
         }
         testToAlphabet();
     }
-}
+
+
