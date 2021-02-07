@@ -175,4 +175,8 @@ main {
     padding-left: 14px;
 }
 
-
+.list{
+    align-self: flex-end;
+    font-family: Roboto;
+    margin-left: 900px;
+}
