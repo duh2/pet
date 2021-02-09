@@ -8,7 +8,7 @@
 
 
 </head>
-<body onload="getRequest();getCookieOnStart();insertData();applyStoredFilters();applyAllFilters();hideBoxes();">
+<body onload=" getRequest();getCookieOnStart();insertData(boxContent); applyStoredFilters();applyAllFilters();hideBoxes();">
 
 
 <div class="header">
@@ -16,7 +16,7 @@
     <article1 class="headerFirst">Only •</article1>
     <article2>original •</article2>
     <article3>jeans</article3>
-    <select id="sortselection" class="list" onchange="bubblesort();">
+    <select id="sortselection" class="list" onchange="sorting();">
         <option value="toBig">по возрастанию цены</option>
         <option value="toSmall">по убыванию цены</option>
         <option value="byName">по названию</option>
