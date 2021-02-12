@@ -195,16 +195,16 @@ function sortByPriceAsc(Array) {
 
             Array.push(linkedList.getNodeByPosition(m))
         }
-
+        return Array
     }
     function test_sortByPriceAsc() {
-        console.assert(sortByPriceAsc([]) == [])
-        console.assert(sortByPriceAsc([{Price:0}]) == [{Price: 0}])
-        console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) == [{Price:1}, {Price: 42}])
-        console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) == [{Price:1}, {Price: 42}])
-        console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) == [{Price:-1}, {Price: 1}])
-        console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) == [{Price:1}, {Price: 2},{Price: 3}])
-        console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) == [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
+        console.assert(sortByPriceAsc([]) === [])
+        console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:-1}, {Price: 1}])
+        console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:1}, {Price: 2},{Price: 3}])
+        console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
 }
 function sortByPriceDec(Array) {
     let linkedList = new LinkedList()
@@ -229,15 +229,16 @@ for (let k=0; k<linkedList.getLength();k++){
     for (let m = 0; m < linkedList.getLength(); m++) {
         Array.push(linkedList.getNodeByPosition(m))
     }
+    return Array
 }
 function test_sortByPriceDec() {
-    console.assert(sortByPriceAsc([]) == [])
-    console.assert(sortByPriceAsc([{Price:0}]) == [{Price: 0}])
-    console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) == [{Price:42}, {Price: 1}])
-    console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) == [{Price:42}, {Price: 1}])
-    console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) == [{Price:1}, {Price: -1}])
-    console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) == [{Price:3}, {Price: 2},{Price: 1}])
-    console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) == [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
+    console.assert(sortByPriceAsc([]) === [])
+    console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:1}, {Price: -1}])
+    console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:3}, {Price: 2},{Price: 1}])
+    console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
 }
 function sortByAlp(Array) {
     let linkedList = new LinkedList()
@@ -265,14 +266,14 @@ function sortByAlp(Array) {
         Array.push(linkedList.getNodeByPosition(m))
 
     }
-console.log(Array)
+return Array
 }
 function test_sortByPriceAlp() {
-    console.assert(sortByAlp([]) == [])
-    console.assert(sortByAlp([{Model:'a'}]) == [{Model: 'a'}])
-    console.assert(sortByAlp([{Model:'a'}, {Model: 'b'}]) == [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByAlp([{Model:'b'}, {Model: 'a'}]) == [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByAlp([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) == [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
+    console.assert(sortByAlp([]) === [])
+    console.assert(sortByAlp([{Model:'a'}]) === [{Model: 'a'}])
+    console.assert(sortByAlp([{Model:'a'}, {Model: 'b'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByAlp([{Model:'b'}, {Model: 'a'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByAlp([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) === [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
 }
 function runSortingTests() {
     test_sortByPriceAsc()
