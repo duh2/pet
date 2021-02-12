@@ -1,6 +1,5 @@
 {
-"products": [
-
+  "products": [
   {
     "Img":"5c5199ed6194c843895_001_phsrh000_2000.jpeg",
     "Sex":"female",
@@ -115,5 +114,5 @@
     "Model":"easy vulc",
     "Price":2499
   }
-]
+  ]
 }
