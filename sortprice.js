@@ -94,7 +94,6 @@ class LinkedList {
     }
 
 }
-let list = new LinkedList()
 
 
 
@@ -172,14 +171,18 @@ function insertData(arrayData) {
     let boxes = document.getElementsByClassName("box");
     boxes[0].parentNode.removeChild(boxes[0])
 }
-function sortByPriceAsc(linkedList, Array) {
+function sortByPriceAsc(Array) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < Array.length; i++) {
+        linkedList.addToTheEnd(Array[i])
+    }
         for (let j = linkedList.getLength() - 1; j > 0; j--) {
             for (let i = 0; i < j; i++) {
               let elem = linkedList.getNodeByPosition(i)
                 let nextElem = linkedList.getNodeByPosition(i+1)
-                let price = Object.values(elem)
-                let nextPrice = Object.values(nextElem)
-                if (price[3] > nextPrice[3]){
+                let attributes = new Map(Object.entries(elem))
+                let nextAttributes = new Map(Object.entries(nextElem))
+                if (attributes.get('Price') > nextAttributes.get('Price')){
                     linkedList.insertInPosition(i+2, elem)
                     linkedList.removeFromPosition(i)
                 }
@@ -194,16 +197,27 @@ function sortByPriceAsc(linkedList, Array) {
         }
 
     }
-function sortByPriceDec(linkedList, Array) {
-    let sortedArray = []
-    let boxes = document.getElementsByClassName("box");
+    function test_sortByPriceAsc() {
+        console.assert(sortByPriceAsc([]) == [])
+        console.assert(sortByPriceAsc([{Price:0}]) == [{Price: 0}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) == [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) == [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) == [{Price:-1}, {Price: 1}])
+        console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) == [{Price:1}, {Price: 2},{Price: 3}])
+        console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) == [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
+}
+function sortByPriceDec(Array) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < Array.length; i++) {
+        linkedList.addToTheEnd(Array[i])
+    }
     for (let j = linkedList.getLength() - 1; j > 0; j--) {
         for (let i = 0; i < j; i++) {
             let elem = linkedList.getNodeByPosition(i)
             let nextElem = linkedList.getNodeByPosition(i + 1)
-            let price = Object.values(elem)
-            let nextPrice = Object.values(nextElem)
-            if (price[3] < nextPrice[3]) {
+            let attributes = new Map(Object.entries(elem))
+            let nextAttributes = new Map(Object.entries(nextElem))
+            if (attributes.get('Price') < nextAttributes.get('Price')) {
                 linkedList.insertInPosition(i + 2, elem)
                 linkedList.removeFromPosition(i)
             }
@@ -213,39 +227,101 @@ for (let k=0; k<linkedList.getLength();k++){
     Array.splice(0,1)
 }
     for (let m = 0; m < linkedList.getLength(); m++) {
-
         Array.push(linkedList.getNodeByPosition(m))
     }
-    console.log(sortedArray)
 }
-function getRequest() {
-        let xhr = new XMLHttpRequest()
-        xhr.open('GET', 'http://localhost:3000/boxContent', false);
-        xhr.send();
-        if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText)
-        } else {
-            boxContent = JSON.parse(xhr.responseText)
-            for (let i=0; i<boxContent.length; i++){
-                list.addToTheEnd(boxContent[i])
+function test_sortByPriceDec() {
+    console.assert(sortByPriceAsc([]) == [])
+    console.assert(sortByPriceAsc([{Price:0}]) == [{Price: 0}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) == [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) == [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) == [{Price:1}, {Price: -1}])
+    console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) == [{Price:3}, {Price: 2},{Price: 1}])
+    console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) == [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
+}
+function sortByAlp(Array) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < Array.length; i++) {
+        linkedList.addToTheEnd(Array[i])
+    }
+    for (let j = linkedList.getLength() - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+            let elem = linkedList.getNodeByPosition(i)
+            let nextElem = linkedList.getNodeByPosition(i+1)
+            let attributes = new Map(Object.entries(elem))
+            let nextAttributes = new Map(Object.entries(nextElem))
+            if (attributes.get('Model') > nextAttributes.get('Model')){
+                linkedList.insertInPosition(i+2, elem)
 
+                linkedList.removeFromPosition(i)
             }
-
         }
     }
+    for (let k=0; k<linkedList.getLength();k++){
+        Array.splice(0,1)
+    }
+    for (let m = 0; m < linkedList.getLength(); m++) {
+
+        Array.push(linkedList.getNodeByPosition(m))
+
+    }
+console.log(Array)
+}
+function test_sortByPriceAlp() {
+    console.assert(sortByAlp([]) == [])
+    console.assert(sortByAlp([{Model:'a'}]) == [{Model: 'a'}])
+    console.assert(sortByAlp([{Model:'a'}, {Model: 'b'}]) == [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByAlp([{Model:'b'}, {Model: 'a'}]) == [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByAlp([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) == [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
+}
+function runSortingTests() {
+    test_sortByPriceAsc()
+    test_sortByPriceDec()
+    test_sortByPriceAlp()
+}
+function getJSONdata() {
+let xhr = new XMLHttpRequest()
+    function getRequest(XMLRequest) {
+
+        XMLRequest.open('GET', 'http://localhost:3000/boxContent', true);
+        XMLRequest.send();
+    }
+    function createOrDeleteSpinner(XMLRequest) {
+        (XMLRequest.status !== 200) ? spinner(true) : spinner(NaN)
+    }
+    function readXHR(XMLRequest) {
+            console.log(XMLRequest)
+        if (XMLRequest.status != 200){
+            console.log("Error")
+        } else {
+            boxContent = JSON.parse(XMLRequest.responseText)
+        }
+    console.log(boxContent)
+    }
+    getRequest(xhr)
+          function readWithCaptiure() {
+              (boxContent==undefined)? createOrDeleteSpinner(xhr): insertData(boxContent);
+return readXHR(xhr)
+    }
+    xhr.onreadystatechange=readWithCaptiure
+}
 function sorting() {
+    runSortingTests()
     let selectedSort = document.getElementById("sortselection").value
-    if (selectedSort == "toBig"){
-        sortByPriceAsc(list, boxContent)
+    if (selectedSort == "asc"){
+        sortByPriceAsc( boxContent)
         removeData()
         insertData(boxContent)
-    } else if (selectedSort == 'toSmall'){
-        sortByPriceDec(list, boxContent)
+    } else if (selectedSort == 'desc'){
+        sortByPriceDec( boxContent)
         removeData()
         insertData(boxContent)
     } else if (selectedSort == 'byName'){
-
+        sortByAlp( boxContent)
+        removeData()
+        insertData(boxContent)
     }
+
     }
 function removeData() {
 let parentNode = document.querySelector("mainpart")
@@ -258,3 +334,16 @@ let parentNode = document.querySelector("mainpart")
     box.classList.add('hidden')
     document.querySelector('mainPart').appendChild(box)
 }
+function spinner(flag) {
+let spinner
+    let parentNode = document.querySelector("mainpart")
+    spinner = document.createElement('div')
+    spinner.classList.add('spinner')
+        if (flag===true) {
+            parentNode.appendChild(spinner)
+        } else {
+            removeData()
+
+        }
+}
+
