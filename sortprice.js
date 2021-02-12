@@ -285,7 +285,7 @@ function getJSONdata() {
 let xhr = new XMLHttpRequest()
     function getRequest(XMLRequest) {
 
-        XMLRequest.open('GET', 'http://localhost:3000/boxContent', true);
+        XMLRequest.open('GET', 'http://localhost:3000/products', true);
         XMLRequest.send();
     }
     function createOrDeleteSpinner(XMLRequest) {
