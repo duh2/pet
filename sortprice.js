@@ -240,7 +240,7 @@ function test_sortByPriceDec() {
     console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:3}, {Price: 2},{Price: 1}])
     console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
 }
-function sortByAlp(Array) {
+function sortByModel(Array) {
     let linkedList = new LinkedList()
     for (let i = 0; i < Array.length; i++) {
         linkedList.addToTheEnd(Array[i])
@@ -268,17 +268,17 @@ function sortByAlp(Array) {
     }
 return Array
 }
-function test_sortByPriceAlp() {
-    console.assert(sortByAlp([]) === [])
-    console.assert(sortByAlp([{Model:'a'}]) === [{Model: 'a'}])
-    console.assert(sortByAlp([{Model:'a'}, {Model: 'b'}]) === [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByAlp([{Model:'b'}, {Model: 'a'}]) === [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByAlp([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) === [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
+function test_sortByModel() {
+    console.assert(sortByModel([]) === [])
+    console.assert(sortByModel([{Model:'a'}]) === [{Model: 'a'}])
+    console.assert(sortByModel([{Model:'a'}, {Model: 'b'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByModel([{Model:'b'}, {Model: 'a'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByModel([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) === [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
 }
 function runSortingTests() {
     test_sortByPriceAsc()
     test_sortByPriceDec()
-    test_sortByPriceAlp()
+    test_sortByModel()
 }
 function getJSONdata() {
 let xhr = new XMLHttpRequest()
@@ -325,7 +325,7 @@ function sorting() {
         removeData()
         insertData(boxContent)
     } else if (selectedSort == 'byName'){
-        sortByAlp( boxContent)
+        sortByModel( boxContent)
         removeData()
         insertData(boxContent)
     }
