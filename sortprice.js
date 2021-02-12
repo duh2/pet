@@ -289,7 +289,7 @@ let xhr = new XMLHttpRequest()
         XMLRequest.send();
     }
     function createOrDeleteSpinner(XMLRequest) {
-        (XMLRequest.status !== 200) ? spinner(true) : spinner(NaN)
+        (XMLRequest.readyState !== 4) ? spinner(true) : spinner(NaN)
     }
     function readXHR(XMLRequest) {
 
@@ -302,10 +302,16 @@ let xhr = new XMLHttpRequest()
     }
     getRequest(xhr)
           function readWithCaptiure() {
-              (boxContent==undefined)? createOrDeleteSpinner(xhr): insertData(boxContent);
+             if (boxContent===undefined){
+                 createOrDeleteSpinner(xhr)
+             } else{
+                 removeData()
+                 insertData(boxContent);
+             }
 return readXHR(xhr)
     }
     xhr.onreadystatechange=readWithCaptiure
+    createOrDeleteSpinner(xhr)
 }
 function sorting() {
     runSortingTests()
