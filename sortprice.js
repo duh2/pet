@@ -171,10 +171,12 @@ function insertData(arrayData) {
     let boxes = document.getElementsByClassName("box");
     boxes[0].parentNode.removeChild(boxes[0])
 }
+
 function sortByPriceAsc(dataArray) {
     let linkedList = new LinkedList()
     for (let i = 0; i < dataArray.length; i++) {
         linkedList.addToTheEnd(dataArray[i])
+
     }
         for (let j = linkedList.getLength() - 1; j > 0; j--) {
             for (let i = 0; i < j; i++) {
@@ -189,6 +191,7 @@ function sortByPriceAsc(dataArray) {
             }
         }
         for (let k=0; k<linkedList.getLength();k++){
+
             dataArray.splice(0,1)
         }
         for (let m = 0; m < linkedList.getLength(); m++) {
@@ -196,6 +199,7 @@ function sortByPriceAsc(dataArray) {
             dataArray.push(linkedList.getNodeByPosition(m))
         }
         return dataArray
+
     }
     function test_sortByPriceAsc() {
         console.assert(sortByPriceAsc([]) === [])
@@ -206,6 +210,7 @@ function sortByPriceAsc(dataArray) {
         console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:1}, {Price: 2},{Price: 3}])
         console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
 }
+
 function sortByPriceDec(dataArray) {
     let linkedList = new LinkedList()
     for (let i = 0; i < dataArray.length; i++) {
@@ -224,12 +229,14 @@ function sortByPriceDec(dataArray) {
         }
     }
 for (let k=0; k<linkedList.getLength();k++){
+
     dataArray.splice(0,1)
 }
     for (let m = 0; m < linkedList.getLength(); m++) {
         dataArray.push(linkedList.getNodeByPosition(m))
     }
     return dataArray
+
 }
 function test_sortByPriceDec() {
     console.assert(sortByPriceAsc([]) === [])
@@ -240,10 +247,12 @@ function test_sortByPriceDec() {
     console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:3}, {Price: 2},{Price: 1}])
     console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
 }
+
 function sortByModel(dataArray) {
     let linkedList = new LinkedList()
     for (let i = 0; i < dataArray.length; i++) {
         linkedList.addToTheEnd(dataArray[i])
+
     }
     for (let j = linkedList.getLength() - 1; j > 0; j--) {
         for (let i = 0; i < j; i++) {
@@ -259,6 +268,7 @@ function sortByModel(dataArray) {
         }
     }
     for (let k=0; k<linkedList.getLength();k++){
+
         dataArray.splice(0,1)
     }
     for (let m = 0; m < linkedList.getLength(); m++) {
@@ -279,39 +289,40 @@ function runSortingTests() {
     test_sortByPriceAsc()
     test_sortByPriceDec()
     test_sortByModel()
+
 }
 function getJSONdata() {
 let xhr = new XMLHttpRequest()
     function getRequest(XMLRequest) {
 
-        XMLRequest.open('GET', 'http://localhost:3000/boxContent', false);
+
+        XMLRequest.open('GET', 'http://localhost:3000/products', true);
         XMLRequest.send();
     }
-
     function createOrDeleteSpinner(XMLRequest) {
-        (XMLRequest.responseText === undefined) ? spinner(true) : spinner(NaN)
+        (XMLRequest.readyState !== 4) ? spinner(true) : spinner(NaN)
     }
-
     function readXHR(XMLRequest) {
-            console.log(XMLRequest)
         if (XMLRequest.status != 200){
             console.log("Error")
         } else {
             boxContent = JSON.parse(XMLRequest.responseText)
         }
-    console.log(boxContent)
+
 
     }
-
     getRequest(xhr)
-    readXHR(xhr)
-
-        //  function readWithCaptiure() {
-//return readXHR(xhr)
-   // }
-  //  xhr.onreadystatechange=readWithCaptiure
-    insertData(boxContent);
-
+          function readWithCaptiure() {
+             if (boxContent===undefined){
+                 createOrDeleteSpinner(xhr)
+             } else{
+                 removeData()
+                 insertData(boxContent);
+             }
+return readXHR(xhr)
+    }
+    xhr.onreadystatechange=readWithCaptiure
+    createOrDeleteSpinner(xhr)
 }
 function sorting() {
     runSortingTests()
@@ -325,7 +336,7 @@ function sorting() {
         removeData()
         insertData(boxContent)
     } else if (selectedSort == 'byName'){
-        sortByModel( boxContent)
+        sortByAlp( boxContent)
         removeData()
         insertData(boxContent)
     }
@@ -344,10 +355,15 @@ let parentNode = document.querySelector("mainpart")
 }
 function spinner(flag) {
 let spinner
+    let parentNode = document.querySelector("mainpart")
     spinner = document.createElement('div')
     spinner.classList.add('spinner')
-    if (flag === true) {
-        document.querySelector('mainpart').appendChild(spinner)
-    }
+        if (flag===true) {
+            parentNode.appendChild(spinner)
+        } else {
+            removeData()
+
+        }
+
 }
 

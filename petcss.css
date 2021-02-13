@@ -187,7 +187,11 @@ main {
     justify-content: center;
     min-height: 90vh;
     min-width: 100%;
+
+    
+
     padding-left: 500px;
+
 }
 .spinner:after {
     animation: changeContent .8s linear infinite;
