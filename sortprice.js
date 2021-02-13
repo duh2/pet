@@ -336,7 +336,7 @@ function sorting() {
         removeData()
         insertData(boxContent)
     } else if (selectedSort == 'byName'){
-        sortByAlp( boxContent)
+        sortByModel( boxContent)
         removeData()
         insertData(boxContent)
     }
