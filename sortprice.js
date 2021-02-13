@@ -1,3 +1,102 @@
+let boxContent
+class Node{
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.length = 0;
+    }
+    insertInPosition(position, value) {
+        if (position < 0 || position > this.length) {
+            return 'Incorrect value of position';
+        }
+
+        let node = new Node(value);
+
+        if (position === 0) {
+            node.next = this.head;
+            this.head = node;
+        } else {
+            let current = this.head;
+            let prev = null;
+            let index = 0;
+
+            while (index < position) {
+                prev = current;
+                current = current.next;
+                index++;
+            }
+
+            prev.next = node;
+            node.next = current;
+        }
+
+        this.length++;
+    }
+    removeFromPosition(position) {
+        if (position < 0 || position > this.length) {
+            return 'Incorrect value of position';
+        }
+        let current = this.head;
+        if (position === 0) {
+            this.head = current.next;
+        } else {
+            let prev = null;
+            let index = 0;
+            while(index < position) {
+                prev = current;
+                current = current.next;
+                index++;
+            }
+            prev.next = current.next;
+        }
+        this.length--;
+        return current.value;
+    }
+    getLength() {
+        return this.length;
+    }
+    print() {
+        let current = this.head;
+        while(current) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
+    addToTheEnd(value) {
+        let node = new Node(value);
+        if (this.length === 0) {
+            this.head = node;
+        } else {
+            let current = this.head;
+            while(current.next) {
+                current = current.next;
+            }
+            current.next = new Node(value);
+        }
+        this.length++;
+    }
+    getNodeByPosition(position) {
+        if (position < 0 || position > this.length) {
+            return 'Incorrect value of position';
+        }
+        let current = this.head;
+        let index = 0;
+        while(index < position) {
+            current = current.next;
+            index++;
+        }
+        return current.value;
+    }
+
+}
+
+
+
 function applyAllFilters() {
     let price = parseInt(document.querySelector('#pricebox').value);
     if (price==null){
@@ -13,178 +112,242 @@ function applyAllFilters() {
     for (let i=0; i<price_box.length; i++){
         price_box_value = price_box[i].getAttribute('data-value-price')
         if (price_box_value<price){
-            all_boxes[i+1].classList.add('hidden')
+            all_boxes[i].classList.add('hidden')
         }
         else {
-            all_boxes[i+1].classList.remove('hidden')
+            all_boxes[i].classList.remove('hidden')
         }
 
 
     }
 }
-
-function insertData() {
-    let boxContent =[
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'aids',
-            Price:12378,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'abibas ddos',
-            Price:4567,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'court',
-            Price:7565,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'court 2.0',
-            Price:5999,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'hoops 2.0',
-            Price:5698,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'8k 2020',
-            Price:4235,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'fusion',
-            Price:6875,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'gazelle',
-            Price:7865,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'v racer',
-            Price:8745,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'lite racer',
-            Price:9854,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'fyw xta',
-            Price:4562,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'zx 750',
-            Price:7568,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'forest groove',
-            Price:9876,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'streetball',
-            Price:4657,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'female',
-            Model:'torsion',
-            Price:6000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'torsion trdc',
-            Price:7000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'zx 2k boost',
-            Price:2560,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'x9000l3',
-            Price:3000,
-        },
-        {
-            Img:'5c5199ed6194c843895_001_phsrh000_2000.jpeg',
-            Sex:'male',
-            Model:'easy vulc',
-            Price:2499,
-        }
-    ]
+function insertData(arrayData) {
     let box = document.querySelector('sampleBox');
     let boxclone
     let boxImg
     let boxSex
     let boxModel
     let boxPrice
-    for(let i=0; i<boxContent.length; i++){
-        boxclone=box.cloneNode(false);
+    for (let i = 0; i < arrayData.length; i++) {
+        boxclone = box.cloneNode(false);
         boxclone.classList.remove('hidden')
-        boxImg=document.createElement('img');
-        boxImg.src=boxContent[i].Img;
+        boxImg = document.createElement('img');
+        boxImg.src = arrayData[i].Img;
         boxImg.classList.add('pic');
         boxclone.appendChild(boxImg);
         boxclone.setAttribute('data-index', i);
 
         boxModel = document.createElement('div')
-        boxModel.innerText = boxContent[i].Model;
+        boxModel.innerText = arrayData[i].Model;
+        boxModel.setAttribute('data-name', arrayData[i].Model)
         boxModel.classList.add('name')
         boxclone.appendChild(boxModel);
 
-        if (boxContent[i].Sex==='male') {
-            boxSex=document.createElement('div')
+        if (arrayData[i].Sex === 'male') {
+            boxSex = document.createElement('div')
             boxSex.classList.add('inside-box-male');
-            boxSex.innerText = boxContent[i].Sex;
+            boxSex.innerText = arrayData[i].Sex;
             boxclone.classList.add('male')
             boxclone.appendChild(boxSex)
 
-        }
-        else{
-            boxSex=document.createElement('div')
+        } else {
+            boxSex = document.createElement('div')
             boxSex.classList.add('inside-box-female');
-            boxSex.innerText = boxContent[i].Sex;
+            boxSex.innerText = arrayData[i].Sex;
             boxclone.classList.add('female')
             boxclone.appendChild(boxSex)
         }
 
         boxPrice = document.createElement('div')
         boxPrice.classList.add('cost')
-        boxPrice.innerText = boxContent[i].Price;
-        boxPrice.setAttribute('data-value-price', boxContent[i].Price)
+        boxPrice.innerText = arrayData[i].Price;
+        boxPrice.setAttribute('data-value-price', arrayData[i].Price)
         boxclone.appendChild(boxPrice);
 
 
         document.querySelector('mainPart').appendChild(boxclone)
 
     }
+    let boxes = document.getElementsByClassName("box");
+    boxes[0].parentNode.removeChild(boxes[0])
+}
+function sortByPriceAsc(dataArray) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < dataArray.length; i++) {
+        linkedList.addToTheEnd(dataArray[i])
+    }
+        for (let j = linkedList.getLength() - 1; j > 0; j--) {
+            for (let i = 0; i < j; i++) {
+              let elem = linkedList.getNodeByPosition(i)
+                let nextElem = linkedList.getNodeByPosition(i+1)
+                let attributes = new Map(Object.entries(elem))
+                let nextAttributes = new Map(Object.entries(nextElem))
+                if (attributes.get('Price') > nextAttributes.get('Price')){
+                    linkedList.insertInPosition(i+2, elem)
+                    linkedList.removeFromPosition(i)
+                }
+            }
+        }
+        for (let k=0; k<linkedList.getLength();k++){
+            dataArray.splice(0,1)
+        }
+        for (let m = 0; m < linkedList.getLength(); m++) {
+
+            dataArray.push(linkedList.getNodeByPosition(m))
+        }
+        return dataArray
+    }
+    function test_sortByPriceAsc() {
+        console.assert(sortByPriceAsc([]) === [])
+        console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:1}, {Price: 42}])
+        console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:-1}, {Price: 1}])
+        console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:1}, {Price: 2},{Price: 3}])
+        console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
+}
+function sortByPriceDec(dataArray) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < dataArray.length; i++) {
+        linkedList.addToTheEnd(dataArray[i])
+    }
+    for (let j = linkedList.getLength() - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+            let elem = linkedList.getNodeByPosition(i)
+            let nextElem = linkedList.getNodeByPosition(i + 1)
+            let attributes = new Map(Object.entries(elem))
+            let nextAttributes = new Map(Object.entries(nextElem))
+            if (attributes.get('Price') < nextAttributes.get('Price')) {
+                linkedList.insertInPosition(i + 2, elem)
+                linkedList.removeFromPosition(i)
+            }
+        }
+    }
+for (let k=0; k<linkedList.getLength();k++){
+    dataArray.splice(0,1)
+}
+    for (let m = 0; m < linkedList.getLength(); m++) {
+        dataArray.push(linkedList.getNodeByPosition(m))
+    }
+    return dataArray
+}
+function test_sortByPriceDec() {
+    console.assert(sortByPriceAsc([]) === [])
+    console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:42}, {Price: 1}])
+    console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:1}, {Price: -1}])
+    console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:3}, {Price: 2},{Price: 1}])
+    console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
+}
+function sortByModel(dataArray) {
+    let linkedList = new LinkedList()
+    for (let i = 0; i < dataArray.length; i++) {
+        linkedList.addToTheEnd(dataArray[i])
+    }
+    for (let j = linkedList.getLength() - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+            let elem = linkedList.getNodeByPosition(i)
+            let nextElem = linkedList.getNodeByPosition(i+1)
+            let attributes = new Map(Object.entries(elem))
+            let nextAttributes = new Map(Object.entries(nextElem))
+            if (attributes.get('Model') > nextAttributes.get('Model')){
+                linkedList.insertInPosition(i+2, elem)
+
+                linkedList.removeFromPosition(i)
+            }
+        }
+    }
+    for (let k=0; k<linkedList.getLength();k++){
+        dataArray.splice(0,1)
+    }
+    for (let m = 0; m < linkedList.getLength(); m++) {
+
+        dataArray.push(linkedList.getNodeByPosition(m))
+
+    }
+return dataArray
+}
+function test_sortByModel() {
+    console.assert(sortByModel([]) === [])
+    console.assert(sortByModel([{Model:'a'}]) === [{Model: 'a'}])
+    console.assert(sortByModel([{Model:'a'}, {Model: 'b'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByModel([{Model:'b'}, {Model: 'a'}]) === [{Model:'a'}, {Model: 'b'}])
+    console.assert(sortByModel([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) === [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
+}
+function runSortingTests() {
+    test_sortByPriceAsc()
+    test_sortByPriceDec()
+    test_sortByModel()
+}
+function getJSONdata() {
+let xhr = new XMLHttpRequest()
+    function getRequest(XMLRequest) {
+
+        XMLRequest.open('GET', 'http://localhost:3000/boxContent', false);
+        XMLRequest.send();
+    }
+
+    function createOrDeleteSpinner(XMLRequest) {
+        (XMLRequest.responseText === undefined) ? spinner(true) : spinner(NaN)
+    }
+
+    function readXHR(XMLRequest) {
+            console.log(XMLRequest)
+        if (XMLRequest.status != 200){
+            console.log("Error")
+        } else {
+            boxContent = JSON.parse(XMLRequest.responseText)
+        }
+    console.log(boxContent)
+
+    }
+
+    getRequest(xhr)
+    readXHR(xhr)
+
+        //  function readWithCaptiure() {
+//return readXHR(xhr)
+   // }
+  //  xhr.onreadystatechange=readWithCaptiure
+    insertData(boxContent);
 
 }
+function sorting() {
+    runSortingTests()
+    let selectedSort = document.getElementById("sortselection").value
+    if (selectedSort == "asc"){
+        sortByPriceAsc( boxContent)
+        removeData()
+        insertData(boxContent)
+    } else if (selectedSort == 'desc'){
+        sortByPriceDec( boxContent)
+        removeData()
+        insertData(boxContent)
+    } else if (selectedSort == 'byName'){
+        sortByModel( boxContent)
+        removeData()
+        insertData(boxContent)
+    }
+
+    }
+function removeData() {
+let parentNode = document.querySelector("mainpart")
+    let box
+    while(parentNode.firstChild){
+    parentNode.removeChild(parentNode.firstChild)
+    }
+    box = document.createElement('sampleBox')
+    box.classList.add('box')
+    box.classList.add('hidden')
+    document.querySelector('mainPart').appendChild(box)
+}
+function spinner(flag) {
+let spinner
+    spinner = document.createElement('div')
+    spinner.classList.add('spinner')
+    if (flag === true) {
+        document.querySelector('mainpart').appendChild(spinner)
+    }
+}
+
