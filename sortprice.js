@@ -172,125 +172,7 @@ function insertData(arrayData) {
     boxes[0].parentNode.removeChild(boxes[0])
 }
 
-function sortByPriceAsc(dataArray) {
-    let linkedList = new LinkedList()
-    for (let i = 0; i < dataArray.length; i++) {
-        linkedList.addToTheEnd(dataArray[i])
 
-    }
-        for (let j = linkedList.getLength() - 1; j > 0; j--) {
-            for (let i = 0; i < j; i++) {
-              let elem = linkedList.getNodeByPosition(i)
-                let nextElem = linkedList.getNodeByPosition(i+1)
-                let attributes = new Map(Object.entries(elem))
-                let nextAttributes = new Map(Object.entries(nextElem))
-                if (attributes.get('Price') > nextAttributes.get('Price')){
-                    linkedList.insertInPosition(i+2, elem)
-                    linkedList.removeFromPosition(i)
-                }
-            }
-        }
-        for (let k=0; k<linkedList.getLength();k++){
-
-            dataArray.splice(0,1)
-        }
-        for (let m = 0; m < linkedList.getLength(); m++) {
-
-            dataArray.push(linkedList.getNodeByPosition(m))
-        }
-        return dataArray
-
-    }
-    function test_sortByPriceAsc() {
-        console.assert(sortByPriceAsc([]) === [])
-        console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
-        console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:1}, {Price: 42}])
-        console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:1}, {Price: 42}])
-        console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:-1}, {Price: 1}])
-        console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:1}, {Price: 2},{Price: 3}])
-        console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MIN_VALUE},{Price: Number.MAX_VALUE}])
-}
-
-function sortByPriceDec(dataArray) {
-    let linkedList = new LinkedList()
-    for (let i = 0; i < dataArray.length; i++) {
-        linkedList.addToTheEnd(dataArray[i])
-    }
-    for (let j = linkedList.getLength() - 1; j > 0; j--) {
-        for (let i = 0; i < j; i++) {
-            let elem = linkedList.getNodeByPosition(i)
-            let nextElem = linkedList.getNodeByPosition(i + 1)
-            let attributes = new Map(Object.entries(elem))
-            let nextAttributes = new Map(Object.entries(nextElem))
-            if (attributes.get('Price') < nextAttributes.get('Price')) {
-                linkedList.insertInPosition(i + 2, elem)
-                linkedList.removeFromPosition(i)
-            }
-        }
-    }
-for (let k=0; k<linkedList.getLength();k++){
-
-    dataArray.splice(0,1)
-}
-    for (let m = 0; m < linkedList.getLength(); m++) {
-        dataArray.push(linkedList.getNodeByPosition(m))
-    }
-    return dataArray
-
-}
-function test_sortByPriceDec() {
-    console.assert(sortByPriceAsc([]) === [])
-    console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
-    console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:42}, {Price: 1}])
-    console.assert(sortByPriceAsc([{Price:42}, {Price: 1}]) === [{Price:42}, {Price: 1}])
-    console.assert(sortByPriceAsc([{Price:1}, {Price: -1}]) === [{Price:1}, {Price: -1}])
-    console.assert(sortByPriceAsc([{Price:3}, {Price: 2},{Price: 1}]) === [{Price:3}, {Price: 2},{Price: 1}])
-    console.assert(sortByPriceAsc([{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}]) === [{Price: Number.MAX_VALUE},{Price: Number.MIN_VALUE}])
-}
-
-function sortByModel(dataArray) {
-    let linkedList = new LinkedList()
-    for (let i = 0; i < dataArray.length; i++) {
-        linkedList.addToTheEnd(dataArray[i])
-
-    }
-    for (let j = linkedList.getLength() - 1; j > 0; j--) {
-        for (let i = 0; i < j; i++) {
-            let elem = linkedList.getNodeByPosition(i)
-            let nextElem = linkedList.getNodeByPosition(i+1)
-            let attributes = new Map(Object.entries(elem))
-            let nextAttributes = new Map(Object.entries(nextElem))
-            if (attributes.get('Model') > nextAttributes.get('Model')){
-                linkedList.insertInPosition(i+2, elem)
-
-                linkedList.removeFromPosition(i)
-            }
-        }
-    }
-    for (let k=0; k<linkedList.getLength();k++){
-
-        dataArray.splice(0,1)
-    }
-    for (let m = 0; m < linkedList.getLength(); m++) {
-
-        dataArray.push(linkedList.getNodeByPosition(m))
-
-    }
-return dataArray
-}
-function test_sortByModel() {
-    console.assert(sortByModel([]) === [])
-    console.assert(sortByModel([{Model:'a'}]) === [{Model: 'a'}])
-    console.assert(sortByModel([{Model:'a'}, {Model: 'b'}]) === [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByModel([{Model:'b'}, {Model: 'a'}]) === [{Model:'a'}, {Model: 'b'}])
-    console.assert(sortByModel([{Model:'b'}, {Model: 'c'},{Model: 'a'}]) === [{Model:'a'}, {Model: 'b'},{Model: 'c'}])
-}
-function runSortingTests() {
-    test_sortByPriceAsc()
-    test_sortByPriceDec()
-    test_sortByModel()
-
-}
 function getJSONdata() {
 let xhr = new XMLHttpRequest()
     function getRequest(XMLRequest) {
@@ -325,7 +207,7 @@ return readXHR(xhr)
     createOrDeleteSpinner(xhr)
 }
 function sorting() {
-    runSortingTests()
+
     let selectedSort = document.getElementById("sortselection").value
     if (selectedSort == "asc"){
         sortByPriceAsc( boxContent)
