@@ -7,7 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-
+        isLoaded: false
     }
   }
   getJSONdata(){
@@ -24,12 +24,12 @@ class App extends React.Component {
       } else {
         this.setState({
           data: JSON.parse(xhr.responseText),
-
+            isLoaded: true,
         })
       }
     }
   }
-renderProducts(){
+  renderProducts(){
 
     const {data} = this.state
 
@@ -46,10 +46,11 @@ renderProducts(){
 
 
   render() {
-
+const {isLoaded} = this.state
+      {isLoaded==false && this.getJSONdata()}
     return (
     <div className='article1'>
-      {this.getJSONdata()}
+
       {this.renderProducts()}
     </div>
 
