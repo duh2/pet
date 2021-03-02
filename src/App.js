@@ -7,14 +7,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-      isLoading: false,
+
     }
   }
   getJSONdata(){
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/products', true);
     xhr.send();
-    this.setState({isLoading:true})
+
     xhr.onreadystatechange = ()=>{
       if (xhr.readyState!==4){
         return false
@@ -24,16 +24,15 @@ class App extends React.Component {
       } else {
         this.setState({
           data: JSON.parse(xhr.responseText),
-          isLoading:false,
+
         })
       }
     }
   }
 renderProducts(){
-    const {data, isLoading} = this.state
-  if (isLoading){
-    return <div>loading....</div>
-  } else {
+
+    const {data} = this.state
+
     return data.map(item=>{
      return(<samplebox className='box'>
       <img src={item.Img} alt={item.Model} className='pic'/>
@@ -42,13 +41,15 @@ renderProducts(){
           <div className='cost' data-value-price={item.Price}>{item.Price}</div>
             </samplebox>)
     })
-  }
+
 }
 
 
   render() {
+
     return (
     <div className='article1'>
+      {this.getJSONdata()}
       {this.renderProducts()}
     </div>
 
