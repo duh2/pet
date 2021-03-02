@@ -34,7 +34,7 @@ class App extends React.Component {
     const {data} = this.state
 
     return data.map(item=>{
-     return(<samplebox className='box'>
+     return(<samplebox className={'box '+ item.Sex}>
       <img src={item.Img} alt={item.Model} className='pic'/>
           <div data-name={item.Model} className='name'>{item.Model}</div>
           <div className={item.Sex}>{item.Sex}</div>
