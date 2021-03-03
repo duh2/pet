@@ -40,7 +40,7 @@ class App extends React.Component {
 
                     <span>Введите цену</span>
                     <input type="text" maxLength="6" size="8" name="FilterField" id="pricebox"
-                           onInput=""/>
+                           />
                 </div>
             </div>
         )
@@ -76,15 +76,29 @@ class App extends React.Component {
   }
   renderProducts(){
 
-    const {data} = this.state
-
+    const {data,isFemaleChecked,isMaleChecked} = this.state
+    const maleFilter = ['male']
+      const femaleFilter = ['female']
+      const maleArray =data.Sex;
+    console.log(maleArray)
     return data.map(item=>{
-     return(<samplebox className={'box '+ item.Sex}>
-      <img src={'./'+item.Img} alt={item.Model} className='pic'/>
-          <div data-name={item.Model} className='name'>{item.Model}</div>
-          <div className={'inside-box-'+item.Sex}>{item.Sex}</div>
-          <div className='cost' data-value-price={item.Price}>{item.Price}</div>
+
+        if (isFemaleChecked  && item.Sex==='female') {
+            return (<samplebox className={'box ' + item.Sex}>
+                <img src={'./' + item.Img} alt={item.Model} className='pic'/>
+                <div data-name={item.Model} className='name'>{item.Model}</div>
+                <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
+                <div className='cost' data-value-price={item.Price}>{item.Price}</div>
             </samplebox>)
+        }
+        if (isMaleChecked  && item.Sex==='male') {
+            return (<samplebox className={'box ' + item.Sex}>
+                <img src={'./' + item.Img} alt={item.Model} className='pic'/>
+                <div data-name={item.Model} className='name'>{item.Model}</div>
+                <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
+                <div className='cost' data-value-price={item.Price}>{item.Price}</div>
+            </samplebox>)
+        }
     })
 
 }
@@ -92,13 +106,15 @@ class App extends React.Component {
 
   render() {
 const {isLoaded} = this.state
+
+
       {isLoaded==false && this.getJSONdata()}
     return (
         <main>
             {this.renderNav()}
     <div className='article1'>
 
-      {this.renderProducts()}
+      { this.renderProducts()}
     </div>
         </main>
     )
