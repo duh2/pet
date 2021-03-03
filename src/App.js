@@ -10,7 +10,8 @@ class App extends React.Component {
         isLoaded: false,
         isMaleChecked: true,
         isFemaleChecked: true,
-        textBoxValue: 0
+        textBoxValue: 0,
+        selectedSortingValue: 'smsht',
     }
   }
     renderNav(){
@@ -46,6 +47,24 @@ class App extends React.Component {
             </div>
         )
     }
+    renderHeader(){
+      return(
+          <div className="header">
+              <header>ABIBAS</header>
+              <article1 className="headerFirst">Only •</article1>
+              <article2>original •</article2>
+              <article3>jeans</article3>
+              <select id="sortselection" className="list" onChange={this.handleSelectedSorting}>
+                  <option value="asc">по возрастанию цены</option>
+                  <option value="desc">по убыванию цены</option>
+                  <option value="byName">по названию</option>
+              </select>
+          </div>
+      )
+    }
+    handleSelectedSorting=(event)=>{
+    this.setState({selectedSortingValue:event.target.value})
+    }
     changeMaleState = ()=>{
       this.setState({
           isMaleChecked:!this.state.isMaleChecked
@@ -80,11 +99,49 @@ class App extends React.Component {
   }
   renderProducts(){
 
-    const {data,isFemaleChecked,isMaleChecked,textBoxValue} = this.state
+    const {data,isFemaleChecked,isMaleChecked,textBoxValue,selectedSortingValue} = this.state
     const maleFilter = ['male']
       const femaleFilter = ['female']
-      const maleArray =data.Sex;
-    console.log(maleArray)
+      let myData = data;
+      for (let i=0; i<data.length; i++){
+
+      }
+      function sortAsc(x,y) {
+          if (x.Price< y.Price){
+              return -1;
+          }
+          if (x.Price>y.Price){
+              return 1
+          }
+          return 0
+      }
+      function sortDesc(x,y){
+          if (x.Price>y.Price){
+              return -1
+          }
+          if (x.Price<y.Price){
+              return 1
+          }
+          return 0
+      }
+      function sortByModel(x,y) {
+          if (x.Model>y.Model){
+              return 1
+          }
+          if (x.Model<y.Model){
+              return -1
+          }
+          return 0
+      }
+      if (selectedSortingValue == 'desc'){
+          myData.sort(sortDesc)
+      } else if (selectedSortingValue == 'asc'){
+          myData.sort(sortAsc)
+      } else if (selectedSortingValue == 'byName'){
+          myData.sort(sortByModel)
+      }
+
+      console.log(myData)
     return data.map(item=>{
         if (textBoxValue<item.Price) {
             if (isFemaleChecked && item.Sex === 'female') {
@@ -115,13 +172,17 @@ const {isLoaded} = this.state
 
       {isLoaded==false && this.getJSONdata()}
     return (
+        <div>
+            {this.renderHeader()}
         <main>
+
             {this.renderNav()}
     <div className='article1'>
 
       { this.renderProducts()}
     </div>
         </main>
+  </div>
     )
   }
 
