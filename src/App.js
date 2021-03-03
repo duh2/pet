@@ -7,12 +7,57 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-        isLoaded: false
+        isLoaded: false,
+        isMaleChecked: true,
+        isFemaleChecked: true,
     }
   }
+    renderNav(){
+        return(
+            <div className="nav">
+
+                <div className="menu">Navigation menu</div>
+
+                <div className="menu">
+
+                    <label>
+                        <input type="checkbox" defaultChecked={this.state.isMaleChecked}
+                               onChange={this.changeMaleState} id="checkMale" value="male"/>
+                        <span>Male</span>
+                    </label>
+                </div>
+                <div className="menu">
+
+                    <label>
+
+
+                        <input type="checkbox" defaultChecked={this.state.isFemaleChecked}
+                               onChange={this.changeFemaleState} id="checkFemale"/>
+                        <span>Female</span>
+                    </label>
+                </div>
+                <div className="menu">
+
+                    <span>Введите цену</span>
+                    <input type="text" maxLength="6" size="8" name="FilterField" id="pricebox"
+                           onInput=""/>
+                </div>
+            </div>
+        )
+    }
+    changeMaleState = ()=>{
+      this.setState({
+          isMaleChecked:!this.state.isMaleChecked
+      })
+    }
+    changeFemaleState = ()=>{
+        this.setState({
+            isFemaleChecked:!this.state.isFemaleChecked
+        })
+    }
   getJSONdata(){
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:3000/products', true);
+    xhr.open('GET', 'http://localhost:3001/products', true);
     xhr.send();
 
     xhr.onreadystatechange = ()=>{
@@ -35,9 +80,9 @@ class App extends React.Component {
 
     return data.map(item=>{
      return(<samplebox className={'box '+ item.Sex}>
-      <img src={item.Img} alt={item.Model} className='pic'/>
+      <img src={'./'+item.Img} alt={item.Model} className='pic'/>
           <div data-name={item.Model} className='name'>{item.Model}</div>
-          <div className={item.Sex}>{item.Sex}</div>
+          <div className={'inside-box-'+item.Sex}>{item.Sex}</div>
           <div className='cost' data-value-price={item.Price}>{item.Price}</div>
             </samplebox>)
     })
@@ -49,11 +94,13 @@ class App extends React.Component {
 const {isLoaded} = this.state
       {isLoaded==false && this.getJSONdata()}
     return (
+        <main>
+            {this.renderNav()}
     <div className='article1'>
 
       {this.renderProducts()}
     </div>
-
+        </main>
     )
   }
 

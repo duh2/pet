@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 export default class NavBoxes extends React.Component{
     constructor(props) {
         super(props);
@@ -17,7 +16,7 @@ export default class NavBoxes extends React.Component{
                 <div className="menu">
 
                     <label>
-                        <input type="checkbox"  id="checkMale" value="male"/>
+                        <input type="checkbox" defaultChecked={checked}  id="checkMale" value="male"/>
                         <span>Male</span>
                     </label>
                 </div>
