@@ -10,6 +10,7 @@ class App extends React.Component {
         isLoaded: false,
         isMaleChecked: true,
         isFemaleChecked: true,
+        textBoxValue: 0
     }
   }
     renderNav(){
@@ -40,7 +41,7 @@ class App extends React.Component {
 
                     <span>Введите цену</span>
                     <input type="text" maxLength="6" size="8" name="FilterField" id="pricebox"
-                           />
+                          value={this.state.textBoxValue} onChange={this.changePriceFilter} />
                 </div>
             </div>
         )
@@ -49,6 +50,9 @@ class App extends React.Component {
       this.setState({
           isMaleChecked:!this.state.isMaleChecked
       })
+    }
+    changePriceFilter = (event)=>{
+      this.setState({textBoxValue:event.target.value})
     }
     changeFemaleState = ()=>{
         this.setState({
@@ -76,28 +80,29 @@ class App extends React.Component {
   }
   renderProducts(){
 
-    const {data,isFemaleChecked,isMaleChecked} = this.state
+    const {data,isFemaleChecked,isMaleChecked,textBoxValue} = this.state
     const maleFilter = ['male']
       const femaleFilter = ['female']
       const maleArray =data.Sex;
     console.log(maleArray)
     return data.map(item=>{
-
-        if (isFemaleChecked  && item.Sex==='female') {
-            return (<samplebox className={'box ' + item.Sex}>
-                <img src={'./' + item.Img} alt={item.Model} className='pic'/>
-                <div data-name={item.Model} className='name'>{item.Model}</div>
-                <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
-                <div className='cost' data-value-price={item.Price}>{item.Price}</div>
-            </samplebox>)
-        }
-        if (isMaleChecked  && item.Sex==='male') {
-            return (<samplebox className={'box ' + item.Sex}>
-                <img src={'./' + item.Img} alt={item.Model} className='pic'/>
-                <div data-name={item.Model} className='name'>{item.Model}</div>
-                <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
-                <div className='cost' data-value-price={item.Price}>{item.Price}</div>
-            </samplebox>)
+        if (textBoxValue<item.Price) {
+            if (isFemaleChecked && item.Sex === 'female') {
+                return (<samplebox className={'box ' + item.Sex}>
+                    <img src={'./' + item.Img} alt={item.Model} className='pic'/>
+                    <div data-name={item.Model} className='name'>{item.Model}</div>
+                    <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
+                    <div className='cost' data-value-price={item.Price}>{item.Price}</div>
+                </samplebox>)
+            }
+            if (isMaleChecked && item.Sex === 'male') {
+                return (<samplebox className={'box ' + item.Sex}>
+                    <img src={'./' + item.Img} alt={item.Model} className='pic'/>
+                    <div data-name={item.Model} className='name'>{item.Model}</div>
+                    <div className={'inside-box-' + item.Sex}>{item.Sex}</div>
+                    <div className='cost' data-value-price={item.Price}>{item.Price}</div>
+                </samplebox>)
+            }
         }
     })
 
