@@ -94,7 +94,7 @@ class LinkedList {
     }
 
 }
-
+runSortingTests()
 
 
 function applyAllFilters() {
@@ -182,9 +182,9 @@ function sortByPriceAsc(dataArray) {
             for (let i = 0; i < j; i++) {
               let elem = linkedList.getNodeByPosition(i)
                 let nextElem = linkedList.getNodeByPosition(i+1)
-                let attributes = new Map(Object.entries(elem))
-                let nextAttributes = new Map(Object.entries(nextElem))
-                if (attributes.get('Price') > nextAttributes.get('Price')){
+                let attribute = elem.Price
+                let nextAttribute = nextElem.Price
+                if (attribute > nextAttribute){
                     linkedList.insertInPosition(i+2, elem)
                     linkedList.removeFromPosition(i)
                 }
@@ -202,6 +202,8 @@ function sortByPriceAsc(dataArray) {
 
     }
     function test_sortByPriceAsc() {
+        console.log([])
+        console.log(sortByPriceAsc([]))
         console.assert(sortByPriceAsc([]) === [])
         console.assert(sortByPriceAsc([{Price:0}]) === [{Price: 0}])
         console.assert(sortByPriceAsc([{Price:1}, {Price: 42}]) === [{Price:1}, {Price: 42}])
@@ -296,7 +298,7 @@ let xhr = new XMLHttpRequest()
     function getRequest(XMLRequest) {
 
 
-        XMLRequest.open('GET', 'http://localhost:3000/products', true);
+        XMLRequest.open('GET', 'https://myendpoint.free.beeceptor.com', true);
         XMLRequest.send();
     }
     function createOrDeleteSpinner(XMLRequest) {
@@ -325,7 +327,7 @@ return readXHR(xhr)
     createOrDeleteSpinner(xhr)
 }
 function sorting() {
-    runSortingTests()
+
     let selectedSort = document.getElementById("sortselection").value
     if (selectedSort == "asc"){
         sortByPriceAsc( boxContent)
