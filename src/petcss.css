@@ -1,19 +1,5 @@
-@font-face {
-    font-family: Roboto;
-src: url("roboto/Roboto.ttf");
-}
-@font-face {
-    font-family: "Roboto Light";
-    src: url("roboto/Robotolight.ttf");
-}
-@font-face {
-    font-family: "Roboto Black";
-    src: url("roboto/RobotoBlack.ttf")
-}
-@font-face {
-    font-family: "Roboto Bold";
-    src: url("roboto/Robotobold.ttf");
-}
+
+
 .box {
     display: flex;
     background-color: whitesmoke;
@@ -169,7 +155,7 @@ main {
     margin-left: 25%;
     text-align: left;
     font-size: 30px;
-    font-family: "Roboto Bold";
+    font-family: "Roboto Bold"
 }
 .headerFirst{
     padding-left: 14px;
