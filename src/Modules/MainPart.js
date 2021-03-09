@@ -9,7 +9,6 @@ class MainPart extends Component{
             data: [],
             isLoaded: false,
 
-
         };
     }
 
@@ -20,7 +19,7 @@ class MainPart extends Component{
 
         xhr.onreadystatechange = ()=>{
             if (xhr.readyState!==4){
-                return false
+                return {isLoaded:false}
             }
             if (xhr.status!== 200){
                 console.log(xhr.status + ': ' + xhr.statusText)
