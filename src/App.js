@@ -103,7 +103,7 @@ class App extends React.Component {
     const {data,isFemaleChecked,isMaleChecked,textBoxValue,selectedSortingValue} = this.state
     const maleFilter = ['male']
       const femaleFilter = ['female']
-      let myData = data;
+      let myData = data
       for (let i=0; i<data.length; i++){
 
       }
@@ -142,7 +142,7 @@ class App extends React.Component {
           myData.sort(sortByModel)
       }
 
-      console.log(myData)
+
     return data.map(item=>{
         if (textBoxValue<item.Price) {
             if (isFemaleChecked && item.Sex === 'female') {
