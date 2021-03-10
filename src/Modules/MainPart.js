@@ -35,8 +35,7 @@ class MainPart extends Component{
         store.subscribe(()=>mapStateToProps(store))
 const {data}=this.state
 const {isFemaleChecked,isMaleChecked,textBoxValue,selectedSortingValue} = this.props
-        const maleFilter = ['male']
-        const femaleFilter = ['female']
+
         let myData = data
         function sortAsc(x,y) {
             if (x.Price< y.Price){
