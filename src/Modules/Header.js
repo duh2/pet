@@ -30,11 +30,12 @@ class Header extends Component {
     }
     handleSelectedSorting=(event)=>{
         this.setState({selectedSortingValue:event.target.value})
-             store.dispatch(actionSelected(this.state.selectedSortingValue))
+
 
         }
 
     render(){
+        store.dispatch(actionSelected(this.state.selectedSortingValue))
         return(
             <div>
                 {this.renderHeader()}

@@ -51,7 +51,6 @@ class VitrineFilters extends Component{
     }
     changePriceFilter = (event)=>{
         this.setState({textBoxValue:event.target.value})
-        store.dispatch(actionFilterChanged(this.state.textBoxValue))
     }
     changeFemaleState = ()=>{
         this.setState({
@@ -60,6 +59,7 @@ class VitrineFilters extends Component{
         store.dispatch(actionCheckedFemale(this.state.isFemaleChecked))
     }
     render(){
+        store.dispatch(actionFilterChanged(this.state.textBoxValue))
         return(
             <div>
                 {this.renderNav()}
