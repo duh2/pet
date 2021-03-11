@@ -114,12 +114,22 @@ main {
     box-sizing: border-box;
     width:100%;
     padding-top: 10px;
+    flex-direction: row;
+    flex-grow: 0;
 }
-.headerTable{
+article{
+    flex-direction: row;
+    padding-bottom: 20px;
+
     display: flex;
-    flex-direction: column;
 }
-.article {
+.headerRow{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+
+}
+.article1 {
     display: flex;
     flex-wrap:wrap;
     background-color: white;

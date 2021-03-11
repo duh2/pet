@@ -17,9 +17,10 @@ export const Header: React.FC = () => {
         <div className="header">
 
             <header>ABIBAS</header>
-            <article className="headerFirst">Only •</article>
-            <article className="headerFirst">original •</article>
-            <article className="headerFirst">jeans</article>
+            <div className='headerRow'>
+            <div className="headerFirst">Only •</div>
+            <div className="headerFirst">original •</div>
+            <div className="headerFirst">jeans</div>
             <select id="sortselection" className="list" onChange={(event)=>{
                 handleSelectedSorting(event)
                 dispatch(actionSelected(selectedSortingValue))
@@ -28,6 +29,7 @@ export const Header: React.FC = () => {
                 <option value="desc">по убыванию цены</option>
                 <option value="byName">по названию</option>
             </select>
+            </div>
             </div>
 
 
