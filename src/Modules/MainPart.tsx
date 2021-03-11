@@ -2,18 +2,19 @@ import React, {Component} from "react";
 import { Store } from "redux";
 import {store} from "../Redux/Redux";
 import {connect} from "react-redux";
+import {States} from "../Redux/Redux";
 
-interface RootState {
-    state: {
-        value_select:string|undefined,
-        value_checked_male:boolean,
-        value_checked_female:boolean,
-        value_filter_by_price:string|undefined
+
+const mapStateToProps = (store: States)=>{
+    return{
+        isMaleChecked: store.value_checked_male,
+        isFemaleChecked: store.value_checked_female,
+        textBoxValue:store.value_filter_by_price,
+        selectedSortingValue:store.value_select,
     }
 }
-const mapStateToProps = (state:RootState)
 
-export class MainPart extends React.Component<any, any> {
+export class MainPart extends Component {
 
     constructor(props: any) {
         super(props);
@@ -149,5 +150,6 @@ export class MainPart extends React.Component<any, any> {
     }
 }
 
-
+const Products = connect(mapStateToProps,null)(MainPart)
+export default Products;
 
