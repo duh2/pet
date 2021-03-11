@@ -1,6 +1,9 @@
+import "../lib/webpack.config"
 import React, {Component} from 'react';
 import {connect} from "react-redux"
 import {store} from "../Redux/Redux";
+
+
 
 class MainPart extends Component{
     constructor(props) {
@@ -13,8 +16,10 @@ class MainPart extends Component{
     }
 
     getJSONdata(){
+        const url =process.env.DB_HOST_LOCAL
+        console.log(process.env.DB_HOST_LOCAL)
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:3001/products', true);
+        xhr.open('GET', ''+url, true);
         xhr.send();
 
         xhr.onreadystatechange = ()=>{

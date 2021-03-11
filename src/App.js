@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-
+require('dotenv').config()
+const db = require('mysql')
+db.createConnection({
+    localHost: process.env.DB_HOST_LOCAL,
+    user: process.env.DB_USER_SERVER,
+    serverHost:process.env.DB_HOST_SERVER,
+})
 
 class App extends React.Component {
   constructor(props) {
@@ -99,7 +105,7 @@ class App extends React.Component {
     }
   }
   renderProducts(){
-
+console.log(process.env.DB_HOST_SERVER)
     const {data,isFemaleChecked,isMaleChecked,textBoxValue,selectedSortingValue} = this.state
     const maleFilter = ['male']
       const femaleFilter = ['female']

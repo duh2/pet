@@ -1,16 +1,21 @@
+import "./lib/env"
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './petcss.css'
 import './roboto/roboto.css'
-import App from "./App";
 import Head from "./Modules/Header";
 import {store} from "./Redux/Redux";
 import {Provider} from "react-redux"
 import VitrineFilter from "./Modules/VitrineFilters";
 import Products from "./Modules/MainPart";
 
+
+
+
+
 ReactDOM.render(
+
 <Provider store={store}>
     <div>
         <Head/>
